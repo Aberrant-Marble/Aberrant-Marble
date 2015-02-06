@@ -13,10 +13,10 @@ passport.deserializeUser(function(obj, done) {
   done(null, obj);
 });
 
-//move clientID and secret as to not expose credentials
+//TODO: REFACTOR OUT THE USER MODEL CREATION TO BE HANDLED IN SERVER.JS SO APPROPRIATE REDIRECT CAN HAPPEN FOR NEW VS. OLD USERS
 passport.use(new FacebookStrategy({
-    clientID: 632339323578963,
-    clientSecret: '3539c1560e204c8c307edf5649177903',
+    clientID: 1006036516092054,
+    clientSecret: '6cffbe530d47734d27c2be8754f3481e',
     callbackURL: "http://localhost:3000/auth/facebook/callback",
   },
   function(accessToken, refreshToken, profile, done) {
@@ -30,11 +30,16 @@ passport.use(new FacebookStrategy({
         } else {
           Users.create({ 
             username: profile.name.givenName + profile.name.familyName,
-            facebookId: profile.id
+            facebookId: profile.id,
+            firstname: profile.name.givenName,
+            lastname: profile.name.familyName
           });
           done(null, profile);
         }
-      });
+      })
+      // .then(function(user){
+      //   console.log("testing"+user);
+      // });
     });
   }
 ));
