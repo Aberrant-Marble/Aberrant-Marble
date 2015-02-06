@@ -1,8 +1,7 @@
-angular.module('languageApp', ['translateModule', 'ngFx'])
+angular.module('languageApp', [])
 
 .controller('selectLanguageController', function($scope, $http, Translate) {
-  $scope.languages = [['English','us'],['Chinese','cn'],['Spanish','es'],['French','fr'],['Italian','it']];
-  $scope.language = {};
+ 
 
   $scope.showChatApp = false;
   $scope.msg = '';
