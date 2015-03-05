@@ -8,7 +8,7 @@ deploy:
   provider: elasticbeanstalk
   region: us-west-1
   app: am
-  env: am-dev
+  env: languageexchange
   bucket_name: elasticbeanstalk-us-west-1-704220101114
   access_key_id: AKIAI6WO274TANRDLGIQ
   secret-access-key:
