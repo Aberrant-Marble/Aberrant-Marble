@@ -11,8 +11,8 @@ if (process.env.HEROKU_POSTGRESQL_ORANGE_URL) {
   var sequelize = new Sequelize(process.env.HEROKU_POSTGRESQL_BRONZE_URL, {
       dialect:  'postgres',
       protocol: 'postgres',
-      port:     5432,
-      host:     'ec2-54-83-36-90.compute-1.amazonaws.com',
+      // port:     5432,
+      // host:     'ec2-54-83-36-90.compute-1.amazonaws.com',
       logging:  true //false
     });  
 } else { var sequelize = new Sequelize('languageapp', 'root', '', {
