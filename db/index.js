@@ -7,14 +7,12 @@ var port = 3306;
 
 
 //dev vs prod credentials
-if (process.env.HEROKU_POSTGRESQL_ORANGE_URL) {
-  var sequelize = new Sequelize(process.env.HEROKU_POSTGRESQL_BRONZE_URL, {
-      dialect:  'postgres',
-      protocol: 'postgres',
-      // port:     5432,
-      // host:     'ec2-54-83-36-90.compute-1.amazonaws.com',
-      logging:  true //false
-    });  
+if (process.env.languageappdb) {
+  var sequelize = new Sequelize('languageapp', 'aberrantmarble', 'hr23greenfield', {
+    host: process.env.languageappdb,
+    port: process.env.languageappdbport,
+    dialect: 'mysql',
+  });  
 } else { var sequelize = new Sequelize('languageapp', 'root', '', {
   dialect: 'mysql',
 });
