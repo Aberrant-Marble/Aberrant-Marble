@@ -4,7 +4,6 @@ var bodyParser = require('body-parser');
 var app = express();
 var crypto = require('crypto');
 var session = require('express-session');
-
 // config file to instantiate 
 var User = require('./server/user/userController');
 var Users = require('./db/index');
@@ -29,7 +28,6 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }));
-
 
 app.listen(port);
 
